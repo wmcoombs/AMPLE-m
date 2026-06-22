@@ -2,7 +2,7 @@
 AMPLE - A Material Point Learning Environment
 
 AMPLE is a quasi-static implicit implementation of the material point method in MATLAB.  
-More informatio about AMPLE can be obtained from the project webapges:
+More information about AMPLE.m can be obtained from the project webapges:
 https://wmcoombs.github.io/AMPLE
 
 AMPLE is an elasto-plastic large deformation material point code with a regular quadrilateral background mesh 
