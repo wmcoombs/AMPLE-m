@@ -1,7 +1,7 @@
 # AMPLE.m
-AMPLE.m - A Material Point Learning Environment (in Matlab)
+AMPLE - A Material Point Learning Environment
 
-AMPLE is a quasi-static implicit implementation of the material point method in MATLAB.  
+AMPLE.m is a quasi-static implicit implementation of the material point method in MATLAB.  
 More information about AMPLE.m can be obtained from the project webapges:
 https://wmcoombs.github.io/AMPLE
 
