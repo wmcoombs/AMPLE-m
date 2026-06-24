@@ -15,6 +15,9 @@ The html files were complied with M2HTML (https://www.artefact.tk/software/matla
 provide  an overview of the code and how it all fits together.  The scripts should also be compatible with 
 MATLAB’s “help” function. 
 
+If you use AMPLE.m in your research, please cite the following paper in any associated publications:
+Coombs, W., & Augarde, C. (2020). AMPLE: A Material Point Learning Environment. Advances in Engineering Software, 139, Article 102748. https://doi.org/10.1016/j.advengsoft.2019.102748
+
 Version history:
 
 AMPLE     - original AMPLE release
