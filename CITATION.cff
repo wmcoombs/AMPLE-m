@@ -1,0 +1,39 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'AMPLE: A Material Point Learning Environment'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: William M.
+    family-names: Coombs
+    email: w.m.coombs@durham.ac.uk
+    affiliation: Durham University
+    orcid: 'https://orcid.org/0000-0003-2099-1676'
+  - given-names: Charles E.
+    family-names: Augarde
+    email: charles.augarde@durham.ac.uk
+    affiliation: Durham University
+    orcid: 'https://orcid.org/0000-0002-5576-7853'
+identifiers:
+  - type: doi
+    value: 10.1016/j.advengsoft.2019.102748
+    description: 'Associated journal paper '
+repository-code: 'https://github.com/wmcoombs/AMPLE-m'
+url: 'https://wmcoombs.github.io/AMPLE/'
+abstract: >-
+  AMPLE was developed to address the severe learning curve
+  for researchers wishing to understand, and start using,
+  the material point method. The software was developed at
+  Durham University between 2014 and 2018 by Dr Will Coombs
+  as a platform to test our new research ideas and
+  understand the impact of adopting different material point
+  variants. AMPLE was first released in January 2019 at the
+  2nd International Conference on the Material Point Method
+  held at Cambridge University, UK.
+keywords:
+  - Material Point Method
+  - MATLAB
