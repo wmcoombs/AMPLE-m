@@ -61,7 +61,7 @@ nelsx=22*a;                                                                 % nu
 nelsy=20*a;                                                                 % number of elements in the y direction
 ly=10;  lx=11;                                                              % domain dimensions
 d=1;  l=10;                                                                 % beam dimensions
-mp=3;                                                                       % number of material points in each direction per element
+mp=6;                                                                       % number of material points in each direction per element
 mpType = 2;                                                                 % material point type: 1 = MPM, 2 = GIMP
 cmType = 1;                                                                 % constitutive model: 1 = elastic, 2 = vM plasticity
 
