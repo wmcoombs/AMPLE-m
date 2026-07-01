@@ -100,7 +100,7 @@ for mp=1:nmp                                                                % ma
     epsEtr = diag([1 1 1 2 2 2])*epsEtr([1 5 9 2 6 3]).';                   % trial elastic strain (vector form)
     
     %---------------------------------------------------------------------- % Constitutive model
-    KsigN = mpData(mp).sigN*det(mpData(mp).Fn);
+    KsigN = mpData(mp).sigN*det(mpData(mp).Fn);                                         % Previous Kirchhoff stress
     if mpData(mp).cmType == 1
         [D,Ksig,epsE]=Hooke3d(KsigN,mpData(mp).epsEn,epsEtr,mpData(mp).mCst);           % elastic behaviour
     elseif mpData(mp).cmType == 2
