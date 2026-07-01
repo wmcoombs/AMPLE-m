@@ -137,6 +137,7 @@ for mp = nmp:-1:1                                                           % lo
   mpData(mp).Fn     = eye(3);                                               % previous deformation gradient
   mpData(mp).F      = eye(3);                                               % deformation gradient
   mpData(mp).sig    = zeros(6,1);                                           % Cauchy stress
+  mpData(mp).sigN   = zeros(6,1);                                           % previous Cauchy stress
   mpData(mp).epsEn  = zeros(6,1);                                           % previous elastic strain (logarithmic)
   mpData(mp).epsE   = zeros(6,1);                                           % elastic strain (logarithmic)
   mpData(mp).mCst   = mCst;                                                 % material constants (or internal variables) for constitutive model
