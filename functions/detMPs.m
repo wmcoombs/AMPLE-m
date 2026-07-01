@@ -100,10 +100,11 @@ for mp=1:nmp                                                                % ma
     epsEtr = diag([1 1 1 2 2 2])*epsEtr([1 5 9 2 6 3]).';                   % trial elastic strain (vector form)
     
     %---------------------------------------------------------------------- % Constitutive model
+    KsigN = mpData(mp).sigN*det(mpData(mp).Fn);
     if mpData(mp).cmType == 1
-        [D,Ksig,epsE]=Hooke3d(epsEtr,mpData(mp).mCst);                      % elastic behaviour
+        [D,Ksig,epsE]=Hooke3d(KsigN,mpData(mp).epsEn,epsEtr,mpData(mp).mCst);           % elastic behaviour
     elseif mpData(mp).cmType == 2
-        [D,Ksig,epsE]=VMconst(epsEtr,mpData(mp).mCst);                      % elasto-plastic behaviour (von Mises)
+        [D,Ksig,epsE]=VMconst(KsigN,mpData(mp).epsEn,epsEtr,mpData(mp).mCst);           % elasto-plastic behaviour (von Mises)
     end
     %----------------------------------------------------------------------
     
