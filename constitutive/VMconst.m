@@ -1,4 +1,4 @@
-function [Dalg,sig,epsE] = VMconst(epsEtr,mCst)
+function [Dalg,sig,epsE] = VMconst(sigN,epsEn,epsEtr,mCst)
 
 %von Mises linear elastic perfectly plastic constitutive model
 %--------------------------------------------------------------------------
@@ -16,6 +16,8 @@ function [Dalg,sig,epsE] = VMconst(epsEtr,mCst)
 % [Dalg,sigma,epsE] = VMCONST(epsEtr,mCst)
 %--------------------------------------------------------------------------
 % Input(s):
+% sigN  - previos stress (6,1)
+% epsEn - previous elastic strain (6,1)
 % epsEtr - trial elastic strain (6,1)
 % mCst   - material constants 
 %--------------------------------------------------------------------------
@@ -34,7 +36,10 @@ bm1=[1 1 1 0 0 0]';                                                         % ve
 Ce=[-ones(3)*v+(1+v)*eye(3) zeros(3); zeros(3) 2*(1+v)*eye(3)]/E;           % elastic compliance matrix
 De=E/((1+v)*(1-2*v))*(bm1*bm1'*v+...
     [eye(3) zeros(3); zeros(3) eye(3)/2]*(1-2*v));                          % elastic stiffness matrix
-sig=De*epsEtr;                                                              % elastic trial stress
+
+deps = epsEtr-epsEn;                                                        % trial elastic strain increment
+sig  = sigN+De*deps;                                                        % elastic trial stress
+
 s=sig-sum(sig(1:3))/3*bm1; j2=(s'*s+s(4:6)'*s(4:6))/2;                      % deviatoric stress and its second invariant (J2)
 f=sqrt(2*j2)/rhoY-1;                                                        % yield function
 epsE=epsEtr; Dalg=De;                                                       % set the elastic case
@@ -44,7 +49,10 @@ if (f>tol)                                                                  % pl
   while (itnum<maxit) && ((norm(b(1:6))>tol) || (abs(b(7))>tol))            % NR loop
     A=[eye(6)+dgam*ddf*De df; df'*De 0];                                    % derivative of the residuals wrt. unknowns (Hessian)
     dx=-inv(A)*b; epsE=epsE+dx(1:6); dgam=dgam+dx(7);                       % increment unknowns
-    sig=De*epsE;                                                            % updated stress
+   
+    depsE = epsE-epsEn;                                                     % elastic strain increment
+    sig   = sigN+De*depsE;                                                  % updated stress
+                                                           
     s=sig-sum(sig(1:3))/3*bm1; j2=(s'*s+s(4:6)'*s(4:6))/2;                  % deviatoric stress and its second invariant (J2)  
     [df,ddf] = yieldFuncDerivatives(sig,rhoY);                              % 1st and 2nd derivative of f wrt. stress
     b=[epsE-epsEtr+dgam*df; sqrt(2*j2)/rhoY-1];                             % residuals
