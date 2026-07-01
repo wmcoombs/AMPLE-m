@@ -56,6 +56,7 @@ for mp=1:nmp
     mpData(mp).epsEn = mpData(mp).epsE;                                     % update material point elastic strains
     mpData(mp).Fn    = mpData(mp).F;                                        % update material point deformation gradients
     mpData(mp).u     = mpData(mp).u + mpU.';                                % update material point displacements
+    mpData(mp).sigN  = mpData(mp).sig;                                      % update material point Cauchy stress 
     if mpData(mp).mpType == 2                                               % GIMPM only (update domain lengths)        
         [V,D] = eig(F.'*F);                                                 % eigen values and vectors F'F
         U     = V*sqrt(D)*V.';                                              % material stretch matrix        
